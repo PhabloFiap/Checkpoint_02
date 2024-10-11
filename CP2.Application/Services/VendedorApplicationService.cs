@@ -48,7 +48,20 @@ namespace CP2.Application.Services
 
         public VendedorEntity? SalvarDadosVendedor(IVendedorDto entity)
         {
-            throw new NotImplementedException();
+            entity.Validate();
+            return _repository.SalvarDados(new VendedorEntity
+            {
+                Nome = entity.Nome,
+                Telefone = entity.Telefone,
+                Email = entity.Email,
+                Endereco = entity.Endereco,
+                CriadoEm = entity.CriadoEm,
+                DataNascimento = entity.DataNascimento,
+                DataContratacao = entity.DataContratacao,
+                ComissaoPercentual = entity.ComissaoPercentual,
+                MetaMensal = entity.MetaMensal,
+
+            });
         }
     }
 }
